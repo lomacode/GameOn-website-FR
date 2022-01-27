@@ -1,3 +1,9 @@
+// Test
+console.log("Bonjour");
+console.info("Ciao");
+console.warn("Hi");
+console.error("Hello");
+
 function editNav() {
   var x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
