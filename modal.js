@@ -4,6 +4,14 @@ console.info("Ciao");
 console.warn("Hi");
 console.error("Hello");
 
+var a = 20, b = 4, result;
+
+result = a + b;
+console.log(result);
+
+
+// Start code
+
 function editNav() {
   var x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
