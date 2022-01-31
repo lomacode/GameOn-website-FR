@@ -10,6 +10,11 @@ result = a + b;
 console.log(result);
 
 
+const inputs = document.querySelectorAll(
+  'input[type="text-control"], input[type="password"]'
+);
+
+
 // Start code
 
 function editNav() {
