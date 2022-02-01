@@ -1,18 +1,11 @@
-// Test
-console.log("Bonjour");
-console.info("Ciao");
-console.warn("Hi");
-console.error("Hello");
-
-var a = 20, b = 4, result;
-
-result = a + b;
-console.log(result);
-
+// Go code
 
 const inputs = document.querySelectorAll(
   'input[type="text-control"], input[type="password"]'
 );
+
+
+
 
 
 // Start code
