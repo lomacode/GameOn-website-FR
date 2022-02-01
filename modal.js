@@ -1,8 +1,17 @@
+// Test
+
+var a = 20,
+  b = 4,
+  result;
+
+
+
 // Go code
 
 const inputs = document.querySelectorAll(
   'input[type="text-control"], input[type="password"]'
 );
+
 
 
 
