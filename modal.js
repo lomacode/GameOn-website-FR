@@ -4,55 +4,111 @@ var a = 20,
   result;
 
 
-// Go code
-
+// Variables déclarées
 const inputs = document.querySelectorAll(
   'input[type="text"], input[type="password"], input[type = "email"], input[type = "date"], input[type = "number"], input[type = "radio"], input[type = "checkbox"]'
 );
-
+let first, last, email, birthdate, number, radio, checkbox;
 
 // Fonctions controleurs check
-const firstChecker = () => {};
-const lastChecker = () => {};
-const emailChecker = () => {};
-const birthdateChecker = () => {};
-const numberChecker = () => {};
-const radioChecker = () => {};
-const checkboxChecker = () => {};
+
+const errorDisplay = (tag, message, valid) => {
+  const container = document.querySelector("." + tag +
+    "-container");
+  const span = document.querySelector("." + tag + "-container > span");
+
+  if (!valid) {
+    container.classList.add('error');
+    span.textContent = message;
+  } else {
+    container.classList.remove('error');
+    span.textContent = message;
+  }
+}
+
+const firstChecker = (value) => {
+  if (value.length > 0 && (value.length < 3 || value.length > 20)) {
+    errorDisplay("first", "Le prénom doit faire entre 3 et 20 caractères");
+    first = null;
+  } else if (!value.match(/^[a-zA-Z0-9_.-]*$/)) {
+    errorDisplay(
+      "first",
+      "Le prénom ne doit pas contenir de caractères spéciaux"
+    );
+    first = null;
+  } else {
+    errorDisplay("first", "", true);
+    first = value;
+  }
+};
+
+const lastChecker = (value) => {
+  if (value.length > 0 && (value.length < 3 || value.length > 20)) {
+    errorDisplay("last", "Le nom de famille doit faire entre 3 et 20 caractères");
+    last = null;
+  } else if (!value.match(/^[a-zA-Z0-9_.-]*$/)) {
+    errorDisplay(
+      "last",
+      "Le nom de famille ne doit pas contenir de caractères spéciaux"
+    );
+    first = null;
+  } else {
+    errorDisplay("last", "", true);
+    first = value;
+  }
+};
+
+const emailChecker = (value) => {
+  if (!value.match(/^[\w_-]+@[\w-]+\.[a-z]{2,4}$/i)) {
+    errorDisplay("email", "Le mail n'est pas valide");
+    email = null;
+  } else {
+    errorDisplay("email", "", true);
+    email = value;
+  }
+};
+
+const birthdateChecker = (value) => {};
+
+const numberChecker = (value) => {};
+
+const radioChecker = (value) => {};
+
+const checkboxChecker = (value) => {};
 
 
 
-
+// Envoi du controleurs checkeur, si confirm envoi controle
 inputs.forEach((input) => {
   input.addEventListener("input", (e) => {
     switch (e.target.value) {
       case "first":
-        firstChecker()
+        firstChecker(e.target.value);
         break;
 
       case "last":
-        firstChecker()
+        firstChecker(e.target.value);
         break;
 
       case "email":
-        emailChecker()
-        break
+        emailChecker(e.target.value);
+        break;
 
       case "birthdate":
-        emailChecker()
-        break
+        emailChecker(e.target.value);
+        break;
 
       case "number":
-        emailChecker()
-        break
+        emailChecker(e.target.value);
+        break;
 
       case "radio":
-        emailChecker()
-        break
+        emailChecker(e.target.value);
+        break;
 
       case "radio":
-        checkboxChecker()
-        break
+        checkboxChecker(e.target.value);
+        break;
 
       default:
         nul;
