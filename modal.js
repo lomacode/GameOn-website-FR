@@ -1,27 +1,22 @@
-// Test
-var a = 20,
-  b = 4,
-  result;
-
+// Variable déclarée Envoi formulaire
+const form = document.querySelectorAll("form")
 
 // Variables déclarées
 const inputs = document.querySelectorAll(
-  'input[type="text"], input[type="password"], input[type = "email"], input[type = "date"], input[type = "number"], input[type = "radio"], input[type = "checkbox"]'
+  'input[type="text"], input[type = "email"], input[type = "date"], input[type = "number"], input[type = "radio"], input[type = "checkbox"]'
 );
 let first, last, email, birthdate, number, radio, checkbox;
 
 // Fonctions controleurs check
-
 const errorDisplay = (tag, message, valid) => {
-  const container = document.querySelector("." + tag +
-    "-container");
+  const container = document.querySelector("." + tag + "-container");
   const span = document.querySelector("." + tag + "-container > span");
 
   if (!valid) {
-    container.classList.add('error');
+    container.classList.add("error");
     span.textContent = message;
   } else {
-    container.classList.remove('error');
+    container.classList.remove("error");
     span.textContent = message;
   }
 }
@@ -81,13 +76,13 @@ const checkboxChecker = (value) => {};
 // Envoi du controleurs checkeur, si confirm envoi controle
 inputs.forEach((input) => {
   input.addEventListener("input", (e) => {
-    switch (e.target.value) {
+    switch (e.target.id) {
       case "first":
         firstChecker(e.target.value);
         break;
 
       case "last":
-        firstChecker(e.target.value);
+        lasttChecker(e.target.value);
         break;
 
       case "email":
@@ -95,63 +90,48 @@ inputs.forEach((input) => {
         break;
 
       case "birthdate":
-        emailChecker(e.target.value);
+        birthdateChecker(e.target.value);
         break;
 
       case "number":
-        emailChecker(e.target.value);
+        numberChecker(e.target.value);
         break;
 
       case "radio":
-        emailChecker(e.target.value);
-        break;
-
-      case "radio":
-        checkboxChecker(e.target.value);
+        radioChecker(e.target.value);
         break;
 
       default:
         nul;
     }
   });
-})
+});
 
+// Valider et envoyer formulaire
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
 
+  if (first && last && email && birthdate && number && radio) {
+    const data = {
+      first,
+      last,
+      email,
+      birthdate,
+      number,
+      radio,
+    };
+    console.log(data);
 
+    inputs.forEach((input) => (input.value = ""));
 
-
-
-
-
-
-// Start code
-
-function editNav() {
-  var x = document.getElementById("myTopnav");
-  if (x.className === "topnav") {
-    x.className += " responsive";
+    first = null
+    last = null
+    email = null
+    birthdate = null;
+    number = null;
+    radio = null;
+    alert("Tout c'est bien passé votre demande a bien été envoyée ! ")
   } else {
-    x.className = "topnav";
+    alert("Veuillez remplir tous les champs avant de valider");
   }
-}
-
-// DOM Elements
-const modalbg = document.querySelector(".bground");
-const modalclose = document.querySelector(".close");
-const modalBtn = document.querySelectorAll(".modal-btn");
-const formData = document.querySelectorAll(".formData");
-
-
-// launch modal event
-modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
-modalclose.addEventListener("click", closeModal);
-
-// launch modal form
-function launchModal() {
-  modalbg.style.display = "block";
-}
-
-// close modal form
-function closeModal() {
-  modalbg.style.display = "none";
-}
+});
