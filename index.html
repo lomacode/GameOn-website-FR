@@ -7,7 +7,16 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <link rel="stylesheet" href="modal.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link href="https://fonts.googleapis.com/css?family=DM+Sans" rel="stylesheet" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- <link
+      href="https://fonts.googleapis.com/css?family=DM+Sans"
+      rel="stylesheet"
+    /> -->
+
+
 </head>
 
 <body>
@@ -60,6 +69,8 @@
 
     <div class="bground">
       <div class="content">
+
+        <!-- Close Modal -->
         <span class="close"></span>
         <div class="modal-body">
           <form name="reserve" action="index.html" method="get" onsubmit="return validate();">
@@ -133,6 +144,7 @@
                 J'ai lu et accepté les conditions d'utilisation.
               </label>
               <br>
+              
               <input class="checkbox-input" type="checkbox" id="checkbox2" />
               <label class="checkbox2-label" for="checkbox2">
                 <span class="checkbox-icon"></span>
@@ -142,7 +154,7 @@
             </div>
 
             <input class="btn-submit" type="submit" id="button" value="C'est parti, on valide !" />
-            
+
           </form>
         </div>
       </div>

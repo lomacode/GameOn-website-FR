@@ -1,4 +1,6 @@
-// Start code
+// * Open modal form with button je m'inscris
+// * Close modal form with cross up-right
+
 function editNav() {
   var x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
@@ -10,9 +12,11 @@ function editNav() {
 
 // DOM Elements
 const modalbg = document.querySelector(".bground");
-const modalclose = document.querySelector(".close");
+
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
+
+const modalclose = document.querySelector(".close");
 
 
 // launch modal event
@@ -28,6 +32,9 @@ function launchModal() {
 function closeModal() {
   modalbg.style.display = "none";
 }
+
+
+// * Suite du code :
 
 // Variable déclarée Envoi formulaire
 const form = document.querySelectorAll("form")
@@ -53,8 +60,8 @@ const errorDisplay = (tag, message, valid) => {
 }
 
 const firstChecker = (value) => {
-  if (value.length > 0 && (value.length < 3 || value.length > 20)) {
-    errorDisplay("first", "Le prénom doit faire entre 3 et 20 caractères");
+  if (value.length > 0 && (value.length < 3 || value.length > 30)) {
+    errorDisplay("first", "Le prénom doit faire entre 3 et 30 caractères");
     first = null;
   } else if (!value.match(/^[a-zA-Z0-9_.-]*$/)) {
     errorDisplay(
