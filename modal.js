@@ -18,7 +18,6 @@ const formData = document.querySelectorAll(".formData");
 
 const modalclose = document.querySelector(".close");
 
-
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 modalclose.addEventListener("click", closeModal);
@@ -33,11 +32,10 @@ function closeModal() {
   modalbg.style.display = "none";
 }
 
+// * Suite du code
 
-// * Suite du code :
-
-// Variable déclarée Envoi formulaire
-const form = document.querySelectorAll("form")
+// Variable déclarée Envoi formulaire (form et pas ALL)
+const form = document.querySelector("form");
 
 // Variables déclarées
 const inputs = document.querySelectorAll(
@@ -57,7 +55,7 @@ const errorDisplay = (tag, message, valid) => {
     container.classList.remove("error");
     span.textContent = message;
   }
-}
+};
 
 const firstChecker = (value) => {
   if (value.length > 0 && (value.length < 3 || value.length > 30)) {
@@ -77,7 +75,10 @@ const firstChecker = (value) => {
 
 const lastChecker = (value) => {
   if (value.length > 0 && (value.length < 3 || value.length > 20)) {
-    errorDisplay("last", "Le nom de famille doit faire entre 3 et 20 caractères");
+    errorDisplay(
+      "last",
+      "Le nom de famille doit faire entre 3 et 20 caractères"
+    );
     last = null;
   } else if (!value.match(/^[a-zA-Z0-9_.-]*$/)) {
     errorDisplay(
@@ -101,15 +102,21 @@ const emailChecker = (value) => {
   }
 };
 
-const birthdateChecker = (value) => {};
+const birthdateChecker = (value) => {
+  if (!value.match(/^[\w_-]+@[\w-]+\.[a-z]{2,4}$/i)) {
+    errorDisplay("email", "Le mail n'est pas valide");
+    email = null;
+  } else {
+    errorDisplay("email", "", true);
+    email = value;
+  }
+};
 
 const numberChecker = (value) => {};
 
 const radioChecker = (value) => {};
 
 const checkboxChecker = (value) => {};
-
-
 
 // Envoi du controleurs checkeur, si confirm envoi controle
 inputs.forEach((input) => {
@@ -120,7 +127,7 @@ inputs.forEach((input) => {
         break;
 
       case "last":
-        lasttChecker(e.target.value);
+        lastChecker(e.target.value);
         break;
 
       case "email":
@@ -145,9 +152,10 @@ inputs.forEach((input) => {
   });
 });
 
-// Valider et envoyer formulaire
+// ** Valider et envoyer formulaire
 form.addEventListener("submit", (e) => {
   e.preventDefault();
+  console.log("Test formulaire");
 
   if (first && last && email && birthdate && number && radio) {
     const data = {
@@ -162,14 +170,17 @@ form.addEventListener("submit", (e) => {
 
     inputs.forEach((input) => (input.value = ""));
 
-    first = null
-    last = null
-    email = null
+    first = null;
+    last = null;
+    email = null;
     birthdate = null;
     number = null;
     radio = null;
-    alert("Tout c'est bien passé votre demande a bien été envoyée ! ")
+    alert("Tout c'est bien passé votre demande a bien été envoyée ! ");
   } else {
     alert("Veuillez remplir tous les champs avant de valider");
   }
 });
+
+//const button = document.querySelector("#button");
+//button.addEventListener('submit', valid);

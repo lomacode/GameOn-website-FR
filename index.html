@@ -78,11 +78,13 @@
             <div class="first-container">
               <label for="first">Prénom</label><br>
               <input class="text-control" type="text" autocomplete="off" id="first" name="first" minlength="2" /><br>
+              <span>Prénom incorrect</span>
             </div>
 
             <div class="last-container">
               <label for="last">Nom</label><br>
               <input class="text-control" type="text" autocomplete="off" id="last" name="last" /><br>
+              <span>Nom incorrect</span>
             </div>
 
             <div class="email-container">
@@ -94,12 +96,14 @@
             <div class="birthdate-container">
               <label for="birthdate">Date de naissance</label><br>
               <input class="text-control" type="date" autocomplete="off" id="birthdate" name="birthdate" /><br>
+              <span>Date incorrecte</span>
             </div>
 
             <div class="quantity-container">
               <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
               <input type="number" autocomplete="off" class="text-control" id="quantity" name="quantity" min="0"
                 max="99">
+              <span>Quantité incorrecte</span>
             </div>
 
             <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
@@ -144,7 +148,7 @@
                 J'ai lu et accepté les conditions d'utilisation.
               </label>
               <br>
-              
+
               <input class="checkbox-input" type="checkbox" id="checkbox2" />
               <label class="checkbox2-label" for="checkbox2">
                 <span class="checkbox-icon"></span>
