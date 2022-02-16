@@ -102,16 +102,16 @@ const emailChecker = (value) => {
   }
 };
 
-//const birthdateChecker = (value) => {
-//  if (!value.match(/^[\w_-]+@[\w-]+\.[a-z]{2,4}$/i)) {
-//    errorDisplay("email", "Le mail n'est pas valide");
-//    email = null;
-//  } else {
-//    errorDisplay("email", "", true);
-//    email = value;
-//  }
-//};
-
+const birthdateChecker = (value) => {
+  console.log(validateBirthdate(value));
+  if (!validateBirthdate(value)) {
+    errorDisplay("birthdate", "La date n'est pas valide");
+    birthdate = null;
+  } else {
+    errorDisplay("birthdate", "", true);
+    birthdate = value;
+  }
+};
 
 // Inscription possible que à majorité (18ans)
 // Fonction validation date anniversaire naissance
@@ -120,12 +120,15 @@ const emailChecker = (value) => {
 function validateBirthdate(birthdate) {
   let todayDate = new Date();
   let birthdateDate = new Date(birthdate.value);
+  console.log(birthdateDate)
   let diff = todayDate.getTime() - birthdateDate.getTime();
   let diffInSeconds = diff / 1000;
-  let majorityInSeconds = 567648000
+  let majorityInSeconds = 567648000;
 
   if (diffInSeconds >= majorityInSeconds) {
     return true;
+  } else {
+    return false;
   }
 }
 
@@ -152,7 +155,8 @@ inputs.forEach((input) => {
         break;
 
       case "birthdate":
-        validateBirthdate(e.target.value);
+        console.log(e.target.value);
+        birthdateChecker(e.target.value);
         break;
 
       case "number":
