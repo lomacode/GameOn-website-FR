@@ -119,7 +119,7 @@ const birthdateChecker = (value) => {
 
 function validateBirthdate(birthdate) {
   let todayDate = new Date();
-  let birthdateDate = new Date(birthdate.value);
+  let birthdateDate = new Date(birthdate);
   console.log(birthdateDate)
   let diff = todayDate.getTime() - birthdateDate.getTime();
   let diffInSeconds = diff / 1000;
