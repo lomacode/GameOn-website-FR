@@ -132,7 +132,19 @@ function validateBirthdate(birthdate) {
   }
 }
 
-const numberChecker = (value) => {};
+const numberChecker = (value) => {
+  if (!value) {
+    errorDisplay("number", "Valeure non correcte");
+    number = null;
+  } else {
+    errorDisplay("number", "", true);
+    number = value;
+  }
+};
+
+
+
+
 
 const radioChecker = (value) => {};
 
@@ -168,7 +180,7 @@ inputs.forEach((input) => {
         break;
 
       default:
-        nul;
+        null;
     }
   });
 });
