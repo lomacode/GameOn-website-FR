@@ -61,7 +61,7 @@ const firstChecker = (value) => {
   if (value.length > 0 && (value.length < 3 || value.length > 30)) {
     errorDisplay("first", "Le prénom doit faire entre 3 et 30 caractères");
     first = null;
-  } else if (!value.match(/^[a-zA-Z0-9_.-]*$/)) {
+  } else if (!value.match(/^[a-zA-Z_.-]*$/)) {
     errorDisplay(
       "first",
       "Le prénom ne doit pas contenir de caractères spéciaux"
