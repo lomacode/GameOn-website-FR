@@ -57,6 +57,7 @@ const errorDisplay = (tag, message, valid) => {
   }
 };
 
+
 const firstChecker = (value) => {
   if (value.length > 0 && (value.length < 3 || value.length > 30)) {
     errorDisplay("first", "Le prénom doit faire entre 3 et 30 caractères");
