@@ -57,8 +57,8 @@ const errorDisplay = (tag, message, valid) => {
   }
 };
 
-
 const firstChecker = (value) => {
+  console.log(value);
   if (value.length > 0 && (value.length < 3 || value.length > 30)) {
     errorDisplay("first", "Le prénom doit faire entre 3 et 30 caractères");
     first = null;
@@ -86,10 +86,10 @@ const lastChecker = (value) => {
       "last",
       "Le nom de famille ne doit pas contenir de caractères spéciaux"
     );
-    first = null;
+    last = null;
   } else {
     errorDisplay("last", "", true);
-    first = value;
+    last = value;
   }
 };
 
@@ -121,7 +121,7 @@ const birthdateChecker = (value) => {
 function validateBirthdate(birthdate) {
   let todayDate = new Date();
   let birthdateDate = new Date(birthdate);
-  console.log(birthdateDate)
+  console.log(birthdateDate);
   let diff = todayDate.getTime() - birthdateDate.getTime();
   let diffInSeconds = diff / 1000;
   let majorityInSeconds = 567648000;
@@ -142,10 +142,6 @@ const numberChecker = (value) => {
     number = value;
   }
 };
-
-
-
-
 
 const radioChecker = (value) => {};
 
@@ -190,6 +186,7 @@ inputs.forEach((input) => {
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   console.log("Test formulaire");
+  console.log(first, last, email, birthdate, number, radio);
 
   if (first && last && email && birthdate && number && radio) {
     const data = {
@@ -200,6 +197,7 @@ form.addEventListener("submit", (e) => {
       number,
       radio,
     };
+
     console.log(data);
 
     inputs.forEach((input) => (input.value = ""));
