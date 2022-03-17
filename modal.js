@@ -75,6 +75,7 @@ const firstChecker = (value) => {
 };
 
 const lastChecker = (value) => {
+  console.log(value);
   if (value.length > 0 && (value.length < 3 || value.length > 20)) {
     errorDisplay(
       "last",
@@ -94,6 +95,7 @@ const lastChecker = (value) => {
 };
 
 const emailChecker = (value) => {
+  console.log(value);
   if (!value.match(/^[\w_-]+@[\w-]+\.[a-z]{2,4}$/i)) {
     errorDisplay("email", "Le mail n'est pas valide");
     email = null;
@@ -104,6 +106,7 @@ const emailChecker = (value) => {
 };
 
 const birthdateChecker = (value) => {
+  console.log(value);
   console.log(validateBirthdate(value));
   if (!validateBirthdate(value)) {
     errorDisplay("birthdate", "La date n'est pas valide");
@@ -143,7 +146,18 @@ const numberChecker = (value) => {
   }
 };
 
-const radioChecker = (value) => {};
+const radioChecker = (value) => {
+  console.log(value);
+  for (button of buttonsRadio) {
+    if (button.checked) {
+      document.getElementById("error-location").innerHTML = "";
+      return true;
+    } else {
+      document.getElementById("error-location").innerHTML =
+        "Choix obligatoire d'une ville ";
+    }
+  }
+};
 
 const checkboxChecker = (value) => {};
 
