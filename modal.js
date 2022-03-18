@@ -192,6 +192,21 @@ inputs.forEach((input) => {
         radioChecker(e.target.value);
         break;
 
+      case "location1":
+      case "location2":
+      case "location3":
+      case "location4":
+      case "location5":
+      case "location6":
+        console.log(e.target.value);
+        radioChecker(e.target.value);
+        break;
+
+      case "checkbox1":
+        console.log(e.target.value);
+        checkboxChecker(e.target.value);
+        break;
+
       default:
         null;
     }
