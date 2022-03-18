@@ -137,11 +137,12 @@ function validateBirthdate(birthdate) {
 }
 
 const numberChecker = (value) => {
+  console.log(value);
   if (!value) {
-    errorDisplay("number", "Valeure non correcte");
+    errorDisplay("quantity", "Valeure non correcte");
     number = null;
   } else {
-    errorDisplay("number", "", true);
+    errorDisplay("quantity", "", true);
     number = value;
   }
 };
@@ -182,11 +183,12 @@ inputs.forEach((input) => {
         birthdateChecker(e.target.value);
         break;
 
-      case "number":
+      case "quantity":
         numberChecker(e.target.value);
         break;
 
       case "radio":
+        console.log(e.target.value);
         radioChecker(e.target.value);
         break;
 
