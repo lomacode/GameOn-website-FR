@@ -149,18 +149,25 @@ const numberChecker = (value) => {
 
 const radioChecker = (value) => {
   console.log(value);
-  for (button of buttonsRadio) {
-    if (button.checked) {
-      document.getElementById("error-location").innerHTML = "";
-      return true;
-    } else {
-      document.getElementById("error-location").innerHTML =
-        "Choix obligatoire d'une ville ";
-    }
+  if (button.checked) {
+    document.getElementById("error-location").innerHTML = "";
+    return true;
+  } else {
+    document.getElementById("error-location").innerHTML =
+      "Choix obligatoire d'une ville ";
   }
 };
 
-const checkboxChecker = (value) => {};
+const checkboxChecker = (value) => {
+  console.log(value);
+  if (button.checked) {
+    document.getElementById("error-location").innerHTML = "";
+    return true;
+  } else {
+    document.getElementById("error-location").innerHTML =
+      "Choix obligatoire d'une ville ";
+  }
+};
 
 // Envoi du controleurs checkeur, si confirm envoi controle
 inputs.forEach((input) => {
@@ -203,6 +210,11 @@ inputs.forEach((input) => {
         break;
 
       case "checkbox1":
+        console.log(e.target.value);
+        checkboxChecker(e.target.value);
+        break;
+
+      case "checkbox2":
         console.log(e.target.value);
         checkboxChecker(e.target.value);
         break;
