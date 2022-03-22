@@ -1,6 +1,7 @@
-// * Open modal form with button je m'inscris
-// * Close modal form with cross up-right
 
+/**
+ * Add or remove the class "responsive" from the topnav element
+ */
 function editNav() {
   var x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
@@ -11,6 +12,7 @@ function editNav() {
 }
 
 // DOM Elements
+/* The above code is creating a modal that will be used to display the form data. */
 const modalbg = document.querySelector(".bground");
 
 const modalBtn = document.querySelectorAll(".modal-btn");
@@ -19,15 +21,23 @@ const formData = document.querySelectorAll(".formData");
 const modalclose = document.querySelector(".close");
 
 // launch modal event
+/* This is creating a modal that will be used to display the form data. */
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 modalclose.addEventListener("click", closeModal);
 
 // launch modal form
+/**
+ * The function `launchModal()` displays the modal background and sets the display property of the
+ * modal background to block
+ */
 function launchModal() {
   modalbg.style.display = "block";
 }
 
 // close modal form
+/**
+ * The function `closeModal` is used to close the modal window
+ */
 function closeModal() {
   modalbg.style.display = "none";
 }
@@ -35,15 +45,27 @@ function closeModal() {
 // * Suite du code
 
 // Variable déclarée Envoi formulaire (form et pas ALL)
+/* This is creating a variable called `form` that is storing the HTML element `form`. */
 const form = document.querySelector("form");
 
 // Variables déclarées
+/* This is creating a variable called `inputs` that is storing the HTML element `input[type="text"],
+input[type = "email"], input[type = "date"], input[type = "number"], input[type = "radio"],
+input[type = "checkbox"]`. */
 const inputs = document.querySelectorAll(
   'input[type="text"], input[type = "email"], input[type = "date"], input[type = "number"], input[type = "radio"], input[type = "checkbox"]'
 );
 let first, last, email, birthdate, number, radio, checkbox;
 
 // Fonctions controleurs check
+/**
+ * * If the input is valid, the container is set to display: none. 
+ * * If the input is invalid, the container is set to display: block. 
+ * * The error message is displayed in the span element.
+ * @param tag - The name of the input field.
+ * @param message - The message to display in the error container.
+ * @param valid - Boolean value that determines whether the input is valid or not.
+ */
 const errorDisplay = (tag, message, valid) => {
   const container = document.querySelector("." + tag + "-container");
   const span = document.querySelector("." + tag + "-container > span");
@@ -57,6 +79,13 @@ const errorDisplay = (tag, message, valid) => {
   }
 };
 
+/**
+ * The function checks if the value is empty, if it's not, it checks if the value is between 3 and 30
+ * characters, if it's not, it checks if the value contains special characters, if it does, it displays
+ * an error message, if it doesn't, it displays a success message and stores the value in the variable
+ * `first`
+ * @param value - The value of the input.
+ */
 const firstChecker = (value) => {
   console.log(value);
   if (value.length > 0 && (value.length < 3 || value.length > 30)) {
@@ -74,6 +103,10 @@ const firstChecker = (value) => {
   }
 };
 
+/**
+ * It checks if the value is valid.
+ * @param value - the value of the input
+ */
 const lastChecker = (value) => {
   console.log(value);
   if (value.length > 0 && (value.length < 3 || value.length > 20)) {
@@ -94,6 +127,10 @@ const lastChecker = (value) => {
   }
 };
 
+/**
+ * It checks if the email is valid.
+ * @param value - The value of the input field.
+ */
 const emailChecker = (value) => {
   console.log(value);
   if (!value.match(/^[\w_-]+@[\w-]+\.[a-z]{2,4}$/i)) {
@@ -105,6 +142,10 @@ const emailChecker = (value) => {
   }
 };
 
+/**
+ * It checks if the birthdate is valid.
+ * @param value - The value of the input field.
+ */
 const birthdateChecker = (value) => {
   console.log(value);
   console.log(validateBirthdate(value));
@@ -121,6 +162,11 @@ const birthdateChecker = (value) => {
 // Fonction validation date anniversaire naissance
 // RETURN TRUE si le temps en secondes date naissance > à 567648000 secondes = 18 années
 
+/**
+ * Validate the birthdate of a user
+ * @param birthdate - The date of birth of the user.
+ * @returns Nothing.
+ */
 function validateBirthdate(birthdate) {
   let todayDate = new Date();
   let birthdateDate = new Date(birthdate);
@@ -136,6 +182,11 @@ function validateBirthdate(birthdate) {
   }
 }
 
+/**
+ * It checks if the value is a number and if it is, it returns the value. If it is not a number, it
+ * returns null.
+ * @param value - The value of the input.
+ */
 const numberChecker = (value) => {
   console.log(value);
   if (!value) {
@@ -147,6 +198,11 @@ const numberChecker = (value) => {
   }
 };
 
+/**
+ * It checks if the radio button is checked or not.
+ * @param value - The value of the radio button.
+ * @returns The value of the radio button.
+ */
 const radioChecker = (value) => {
   console.log(value);
   if (button.checked) {
@@ -158,6 +214,11 @@ const radioChecker = (value) => {
   }
 };
 
+/**
+ * It checks if the checkbox is checked or not.
+ * @param value - The value of the checkbox.
+ * @returns a boolean value.
+ */
 const checkboxChecker = (value) => {
   console.log(value);
   if (button.checked) {
@@ -170,6 +231,9 @@ const checkboxChecker = (value) => {
 };
 
 // Envoi du controleurs checkeur, si confirm envoi controle
+/* The above code is adding an event listener to each input element. When the input element is changed,
+the code will run a function that will check the input value and change the class of the input
+element. */
 inputs.forEach((input) => {
   input.addEventListener("input", (e) => {
     switch (e.target.id) {
@@ -226,6 +290,10 @@ inputs.forEach((input) => {
 });
 
 // ** Valider et envoyer formulaire
+
+/* The code above is creating a form with a submit button. When the user clicks on the submit button,
+the code will check if all the fields are filled. If they are, it will send the data to the server.
+If not, it will display an alert. */
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   console.log("Test formulaire");
