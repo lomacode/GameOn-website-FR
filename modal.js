@@ -1,4 +1,3 @@
-
 /**
  * Add or remove the class "responsive" from the topnav element
  */
@@ -59,8 +58,8 @@ let first, last, email, birthdate, number, radio, checkbox;
 
 // Fonctions controleurs check
 /**
- * * If the input is valid, the container is set to display: none. 
- * * If the input is invalid, the container is set to display: block. 
+ * * If the input is valid, the container is set to display: none.
+ * * If the input is invalid, the container is set to display: block.
  * * The error message is displayed in the span element.
  * @param tag - The name of the input field.
  * @param message - The message to display in the error container.
@@ -203,10 +202,12 @@ const numberChecker = (value) => {
  * @param value - The value of the radio button.
  * @returns The value of the radio button.
  */
-const radioChecker = (value) => {
-  console.log(value);
-  if (button.checked) {
+const radioChecker = (button) => {
+  console.log(button);
+  let btn = document.getElementById(button);
+  if (btn.checked) {
     document.getElementById("error-location").innerHTML = "";
+    radio = btn.value;
     return true;
   } else {
     document.getElementById("error-location").innerHTML =
@@ -219,13 +220,15 @@ const radioChecker = (value) => {
  * @param value - The value of the checkbox.
  * @returns a boolean value.
  */
-const checkboxChecker = (value) => {
-  console.log(value);
-  if (button.checked) {
-    document.getElementById("error-location").innerHTML = "";
+const checkboxChecker = (button) => {
+  let btn = document.getElementById(button);
+  console.log(button);
+  if (btn.checked) {
+    document.getElementById("checkbox-error").innerHTML = "";
+    checkbox = btn.value;
     return true;
   } else {
-    document.getElementById("error-location").innerHTML =
+    document.getElementById("checkbox-error").innerHTML =
       "Choix obligatoire d'une ville ";
   }
 };
@@ -270,18 +273,18 @@ inputs.forEach((input) => {
       case "location5":
       case "location6":
         console.log(e.target.value);
-        radioChecker(e.target.value);
+        radioChecker(e.target.id);
         break;
 
       case "checkbox1":
         console.log(e.target.value);
-        checkboxChecker(e.target.value);
+        checkboxChecker(e.target.id);
         break;
 
-      case "checkbox2":
-        console.log(e.target.value);
-        checkboxChecker(e.target.value);
-        break;
+      // case "checkbox2":
+      //   console.log(e.target.value);
+      //   checkboxChecker(e.target.value);
+      //   break;
 
       default:
         null;
