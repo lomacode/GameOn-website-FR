@@ -211,7 +211,7 @@ const radioChecker = (button) => {
     return true;
   } else {
     document.getElementById("error-location").innerHTML =
-      "Choix obligatoire d'une ville ";
+      "Ce champ est obligatoire";
   }
 };
 
@@ -229,7 +229,7 @@ const checkboxChecker = (button) => {
     return true;
   } else {
     document.getElementById(`${button}-error`).innerHTML =
-      "Acceptation obligatoire";
+      "Accepter est une obligation";
   }
 };
 
