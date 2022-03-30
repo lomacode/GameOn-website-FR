@@ -224,12 +224,12 @@ const checkboxChecker = (button) => {
   let btn = document.getElementById(button);
   console.log(button);
   if (btn.checked) {
-    document.getElementById("checkbox-error").innerHTML = "";
+    document.getElementById(`${button}-error`).innerHTML = "";
     checkbox = btn.value;
     return true;
   } else {
-    document.getElementById("checkbox-error").innerHTML =
-      "Choix obligatoire d'une ville ";
+    document.getElementById(`${button}-error`).innerHTML =
+      "Acceptation obligatoire";
   }
 };
 
@@ -281,10 +281,10 @@ inputs.forEach((input) => {
         checkboxChecker(e.target.id);
         break;
 
-      // case "checkbox2":
-      //   console.log(e.target.value);
-      //   checkboxChecker(e.target.value);
-      //   break;
+      case "checkbox2":
+        console.log(e.target.value);
+        checkboxChecker(e.target.id);
+        break;
 
       default:
         null;
@@ -324,7 +324,9 @@ form.addEventListener("submit", (e) => {
     radio = null;
     alert("Tout c'est bien passé votre demande a bien été envoyée ! ");
   } else {
-    alert("Veuillez remplir tous les champs avant de valider");
+    alert(
+      "Impossible d'envoyer vos réponses ! Veuillez d'abord remplir tous les champs avant de valider."
+    );
   }
 });
 
