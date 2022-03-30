@@ -214,6 +214,7 @@ main {
   padding-top: 10px;
 }
 
+
 .modal-body {
   padding: 15px 8%;
   margin: 15px auto;
@@ -232,6 +233,24 @@ input {
   border: 0.8px solid #ccc;
   outline: none;
 }
+
+
+.error {
+  width: 100%;
+  padding: 0;
+
+  font-size: 80%;
+  color: #ff6666;
+  /*
+  background-color: #900;
+  border-radius: 1px;
+  */
+
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+
 
 .text-control {
   margin: 0;
@@ -263,12 +282,21 @@ input {
   border: 2px solid #e54858;
 }
 
-/* 
+/*
 input[data-error]::after {
     content: attr(data-error);
     font-size: 0.4em;
     color: red;
-} */
+} 
+*/
+/*
+input:invalid {
+  border: 4px dashed red;
+}
+*/
+
+
+
 .checkbox-label,
 .checkbox2-label {
   position: relative;
