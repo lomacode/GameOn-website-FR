@@ -88,13 +88,13 @@ const errorDisplay = (tag, message, valid) => {
 const firstChecker = (value) => {
   console.log(value);
   if (value.length > 0 && (value.length < 3 || value.length > 30)) {
-    errorDisplay("first", "Le prénom doit faire entre 3 et 30 caractères");
-    first = null;
-  } else if (!value.match(/^[a-zA-Z_.-]*$/)) {
     errorDisplay(
       "first",
-      "Le prénom ne doit pas contenir de caractères spéciaux"
+      "Minimum 3 et maximum 20 caractères ! Pas de caractères spéciaux acceptés."
     );
+    first = null;
+  } else if (!value.match(/^[a-zA-Z_.-]*$/)) {
+    errorDisplay("first", "Pas de caractères spéciaux acceptés !");
     first = null;
   } else {
     errorDisplay("first", "", true);
@@ -111,14 +111,11 @@ const lastChecker = (value) => {
   if (value.length > 0 && (value.length < 3 || value.length > 20)) {
     errorDisplay(
       "last",
-      "Le nom de famille doit faire entre 3 et 20 caractères"
+      "Minimum 3 et maximum 20 caractères ! Pas de caractères spéciaux acceptés."
     );
     last = null;
   } else if (!value.match(/^[a-zA-Z0-9_.-]*$/)) {
-    errorDisplay(
-      "last",
-      "Le nom de famille ne doit pas contenir de caractères spéciaux"
-    );
+    errorDisplay("last", "Pas de caractères spéciaux acceptés !");
     last = null;
   } else {
     errorDisplay("last", "", true);
@@ -133,7 +130,7 @@ const lastChecker = (value) => {
 const emailChecker = (value) => {
   console.log(value);
   if (!value.match(/^[\w_-]+@[\w-]+\.[a-z]{2,4}$/i)) {
-    errorDisplay("email", "Le mail n'est pas valide");
+    errorDisplay("email", "Insérer e-mail valide !");
     email = null;
   } else {
     errorDisplay("email", "", true);
