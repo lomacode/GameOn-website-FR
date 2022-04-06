@@ -77,7 +77,7 @@ img {
 
 .end-modal {
   display: none;
-  block-size: 30em;
+  block-size: 25em;
   margin-top: 15em;
   margin-left: 1.5em;
   margin-right: 1.5em;
@@ -85,8 +85,9 @@ img {
   }
 
 .end-modal p {
-  margin-bottom: 550px;
+  margin-bottom: 20em;
 }
+
 
 /* messsages d'obligations*/
 .checkbox-input {
