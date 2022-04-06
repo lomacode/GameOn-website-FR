@@ -50,7 +50,7 @@ img {
   display: block;
   color: #000000;
   text-align: center;
-  padding: 12px 12px;
+  padding: 5px 5px;
   margin: 5px;
   text-decoration: none;
   font-size: 20px;
@@ -77,15 +77,15 @@ img {
 
 .end-modal {
   display: none;
-  block-size: 25em;
-  margin-top: 15em;
+  max-block-size: 60%;
+  margin-top: 5em;
   margin-left: 1.5em;
   margin-right: 1.5em;
   text-align: center;
   }
 
 .end-modal p {
-  margin-bottom: 20em;
+  margin-bottom: 130%;
 }
 
 
@@ -225,6 +225,7 @@ main {
   margin: 5% auto;
   width: 100%;
   max-width: 500px;
+  min-height:800px;
   animation-name: modalopen;
   animation-duration: var(--modal-duration);
   background: #232323;
@@ -509,13 +510,13 @@ input:invalid {
 }
 
 .hero-section {
-  min-height: 93vh;
+  min-height: 70vh;
   border-radius: 10px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   overflow: hidden;
   box-shadow: 0 2px 7px 2px rgba(0, 0, 0, 0.2);
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .hero-content {
@@ -591,6 +592,7 @@ input:invalid {
 }
 
 footer {
+  margin-top: -55px !important;
   padding-left: 2vw;
   padding-right: 2vw;
   margin: 0 20px;
