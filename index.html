@@ -72,13 +72,13 @@
 
         <!-- Close Modal -->
         <span class="close"></span>
-        <div class="modal-body">
+        <div class="modal-body" id="modal-body">
           <form name="reserve" action="index.html" method="get">
 
             <div class="first-container">
               <label for="first">Prénom</label><br>
               <input class="text-control" type="text" autocomplete="off" id="first" name="first" minlength="2" /><br>
-             <span class="error"></span>
+              <span class="error"></span>
             </div>
 
             <div class="last-container">
@@ -139,13 +139,13 @@
               <label class="checkbox-label" for="location6">
                 <span class="checkbox-icon"></span>
                 Portland</label>
-                <span id="error-location"></span>
+              <span id="error-location"></span>
             </div>
 
             <div class="formData">
               <input class="checkbox-input" type="checkbox" id="checkbox1" checked required />
               <label class="checkbox2-label" for="checkbox1">
-                <span class="checkbox-icon" id="checkbox1-error" ></span>
+                <span class="checkbox-icon" id="checkbox1-error"></span>
                 J'ai lu et accepté les conditions d'utilisation.
               </label>
               <br>
@@ -162,6 +162,12 @@
 
           </form>
         </div>
+
+        <div class="end-modal" id="end-modal">
+          <p>Merci pour votre inscription</p>
+          <input class="btn-submit" type="submit" id="button" value="Fermer" />
+        </div>
+
       </div>
     </div>
   </main>

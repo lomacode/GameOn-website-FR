@@ -319,11 +319,12 @@ form.addEventListener("submit", (e) => {
     birthdate = null;
     number = null;
     radio = null;
-    alert("Tout c'est bien passé votre demande a bien été envoyée ! ");
+
+    document.getElementById("modal-body").style.display = "none";
+    document.getElementById("end-modal").style.display = "block";
   } else {
-    alert(
-      "Impossible d'envoyer vos réponses ! Veuillez d'abord remplir tous les champs avant de valider."
-    );
+    document.getElementById("modal-body").style.display = "block";
+    document.getElementById("end-modal").style.display = "none";
   }
 });
 

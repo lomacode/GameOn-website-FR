@@ -73,6 +73,26 @@ img {
   display: none;
 }
 
+
+
+.end-modal {
+  display: none;
+  block-size: 30em;
+  margin-top: 15em;
+  margin-left: 1.5em;
+  margin-right: 1.5em;
+  text-align: center;
+  }
+
+.end-modal p {
+  margin-bottom: 550px;
+}
+
+/* messsages d'obligations*/
+.checkbox-input {
+  display: block;
+}
+
 @media screen and (max-width: 768px) {
   .topnav a {
     display: none;
@@ -250,7 +270,9 @@ input {
   box-sizing: border-box;
 }
 
-
+.checkbox1 {
+  display: block;
+}
 
 .text-control {
   margin: 0;
