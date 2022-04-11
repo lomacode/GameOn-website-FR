@@ -86,7 +86,6 @@ const errorDisplay = (tag, message, valid) => {
  * @param value - The value of the input.
  */
 const firstChecker = (value) => {
-  console.log(value);
   if (value.length > 0 && (value.length < 3 || value.length > 30)) {
     errorDisplay(
       "first",
@@ -107,7 +106,6 @@ const firstChecker = (value) => {
  * @param value - the value of the input
  */
 const lastChecker = (value) => {
-  console.log(value);
   if (value.length > 0 && (value.length < 3 || value.length > 20)) {
     errorDisplay(
       "last",
@@ -128,7 +126,6 @@ const lastChecker = (value) => {
  * @param value - The value of the input field.
  */
 const emailChecker = (value) => {
-  console.log(value);
   if (!value.match(/^[\w_-]+@[\w-]+\.[a-z]{2,4}$/i)) {
     errorDisplay("email", "Insérer e-mail valide !");
     email = null;
@@ -143,8 +140,6 @@ const emailChecker = (value) => {
  * @param value - The value of the input field.
  */
 const birthdateChecker = (value) => {
-  console.log(value);
-  console.log(validateBirthdate(value));
   if (!validateBirthdate(value)) {
     errorDisplay("birthdate", "La date n'est pas valide");
     birthdate = null;
@@ -166,7 +161,6 @@ const birthdateChecker = (value) => {
 function validateBirthdate(birthdate) {
   let todayDate = new Date();
   let birthdateDate = new Date(birthdate);
-  console.log(birthdateDate);
   let diff = todayDate.getTime() - birthdateDate.getTime();
   let diffInSeconds = diff / 1000;
   let majorityInSeconds = 567648000;
@@ -184,7 +178,6 @@ function validateBirthdate(birthdate) {
  * @param value - The value of the input.
  */
 const numberChecker = (value) => {
-  console.log(value);
   if (!value) {
     errorDisplay("quantity", "Valeure non correcte");
     number = null;
@@ -200,7 +193,6 @@ const numberChecker = (value) => {
  * @returns The value of the radio button.
  */
 const radioChecker = (button) => {
-  console.log(button);
   let btn = document.getElementById(button);
   if (btn.checked) {
     document.getElementById("error-location").innerHTML = "";
@@ -219,7 +211,6 @@ const radioChecker = (button) => {
  */
 const checkboxChecker = (button) => {
   let btn = document.getElementById(button);
-  console.log(button);
   if (btn.checked) {
     document.getElementById(`${button}-error`).innerHTML = "";
     checkbox = btn.value;
@@ -250,7 +241,6 @@ inputs.forEach((input) => {
         break;
 
       case "birthdate":
-        console.log(e.target.value);
         birthdateChecker(e.target.value);
         break;
 
@@ -259,7 +249,6 @@ inputs.forEach((input) => {
         break;
 
       case "radio":
-        console.log(e.target.value);
         radioChecker(e.target.value);
         break;
 
@@ -269,17 +258,14 @@ inputs.forEach((input) => {
       case "location4":
       case "location5":
       case "location6":
-        console.log(e.target.value);
         radioChecker(e.target.id);
         break;
 
       case "checkbox1":
-        console.log(e.target.value);
         checkboxChecker(e.target.id);
         break;
 
       case "checkbox2":
-        console.log(e.target.value);
         checkboxChecker(e.target.id);
         break;
 
