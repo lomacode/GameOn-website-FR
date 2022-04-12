@@ -86,10 +86,10 @@ const errorDisplay = (tag, message, valid) => {
  * @param value - The value of the input.
  */
 const firstChecker = (value) => {
-  if (value.length > 0 && (value.length < 3 || value.length > 30)) {
+  if (value.length > 0 && (value.length < 2 || value.length > 30)) {
     errorDisplay(
       "first",
-      "Minimum 3 et maximum 20 caractères ! Pas de caractères spéciaux acceptés."
+      "Minimum 2 et maximum 20 caractères ! Pas de caractères spéciaux acceptés."
     );
     first = null;
   } else if (!value.match(/^[a-zA-Z_.-]*$/)) {
@@ -106,10 +106,10 @@ const firstChecker = (value) => {
  * @param value - the value of the input
  */
 const lastChecker = (value) => {
-  if (value.length > 0 && (value.length < 3 || value.length > 20)) {
+  if (value.length > 0 && (value.length < 2 || value.length > 20)) {
     errorDisplay(
       "last",
-      "Minimum 3 et maximum 20 caractères ! Pas de caractères spéciaux acceptés."
+      "Minimum 2 et maximum 20 caractères ! Pas de caractères spéciaux acceptés."
     );
     last = null;
   } else if (!value.match(/^[a-zA-Z0-9_.-]*$/)) {
@@ -311,6 +311,7 @@ form.addEventListener("submit", (e) => {
   } else {
     document.getElementById("modal-body").style.display = "block";
     document.getElementById("end-modal").style.display = "none";
+    document.getElementById("mess-end").addEventlistwner("click", modalclose);
   }
 });
 
