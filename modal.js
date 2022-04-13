@@ -22,7 +22,7 @@ const modalclose = document.querySelector(".close");
 // launch modal event
 /* This is creating a modal that will be used to display the form data. */
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
-modalclose.addEventListener("click", closeModal);
+modalclose.addEventListener("click", closeModalForm);
 
 // launch modal form
 /**
@@ -206,6 +206,7 @@ const numberChecker = (value) => {
  */
 const radioChecker = (button) => {
   let btn = document.getElementById(button);
+  console.log(btn.checked, btn.value);
   if (btn.checked) {
     document.getElementById("error-location").innerHTML = "";
     radio = btn.value;
@@ -223,6 +224,7 @@ const radioChecker = (button) => {
  */
 const checkboxChecker = (button) => {
   let btn = document.getElementById(button);
+  console.log(btn.checked);
   if (btn.checked) {
     document.getElementById(`${button}-error`).innerHTML = "";
     checkbox = btn.value;
@@ -260,9 +262,9 @@ inputs.forEach((input) => {
         numberChecker(e.target.value);
         break;
 
-      case "radio":
-        radioChecker(e.target.value);
-        break;
+      // case "radio":
+      // radioChecker(e.target.value);
+      // break;
 
       case "location1":
       case "location2":
@@ -344,9 +346,9 @@ form.addEventListener("submit", (e) => {
           numberChecker(input.value);
           break;
 
-        case "radio":
-          radioChecker(input.value);
-          break;
+        //case "radio":
+        //radioChecker(input.value);
+        //break;
 
         case "location1":
         case "location2":
