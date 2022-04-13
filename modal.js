@@ -311,9 +311,10 @@ form.addEventListener("submit", (e) => {
   } else {
     document.getElementById("modal-body").style.display = "block";
     document.getElementById("end-modal").style.display = "none";
-    document.getElementById("mess-end").addEventlistwner("click", modalclose);
-  }
+  } 
 });
+
+document.getElementById("mess-end").addEventlistener("click", closeModal);
 
 //const button = document.querySelector("#button");
 //button.addEventListener('submit', valid);
