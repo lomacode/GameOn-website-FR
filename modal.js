@@ -278,7 +278,6 @@ inputs.forEach((input) => {
         break;
 
       case "checkbox2":
-        checkboxChecker(e.target.id);
         break;
 
       default:
