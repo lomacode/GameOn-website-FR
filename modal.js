@@ -41,6 +41,12 @@ function closeModal() {
   modalbg.style.display = "none";
 }
 
+function closeModalForm() {
+  modalbg.style.display = "none";
+  document.getElementById("modal-body").style.display = "block";
+  document.getElementById("end-modal").style.display = "none";
+}
+
 // * Suite du code
 
 // Variable déclarée Envoi formulaire (form et pas ALL)
@@ -95,6 +101,9 @@ const firstChecker = (value) => {
   } else if (!value.match(/^[a-zA-Z_.-]*$/)) {
     errorDisplay("first", "Pas de caractères spéciaux acceptés !");
     first = null;
+  } else if (!value) {
+    errorDisplay("first", "Entrer une valeure !");
+    first = null;
   } else {
     errorDisplay("first", "", true);
     first = value;
@@ -114,6 +123,9 @@ const lastChecker = (value) => {
     last = null;
   } else if (!value.match(/^[a-zA-Z0-9_.-]*$/)) {
     errorDisplay("last", "Pas de caractères spéciaux acceptés !");
+    last = null;
+  } else if (!value) {
+    errorDisplay("last", "Entrer une valeure !");
     last = null;
   } else {
     errorDisplay("last", "", true);
@@ -200,7 +212,7 @@ const radioChecker = (button) => {
     return true;
   } else {
     document.getElementById("error-location").innerHTML =
-      "Ce champ est obligatoire";
+      "Choisir une ville est obligatoire";
   }
 };
 
@@ -308,13 +320,63 @@ form.addEventListener("submit", (e) => {
 
     document.getElementById("modal-body").style.display = "none";
     document.getElementById("end-modal").style.display = "block";
+    console.log(form);
+    form.reset();
   } else {
+    inputs.forEach((input) => {
+      switch (input.id) {
+        case "first":
+          firstChecker(input.value);
+          break;
+
+        case "last":
+          lastChecker(input.value);
+          break;
+
+        case "email":
+          emailChecker(input.value);
+          break;
+
+        case "birthdate":
+          birthdateChecker(input.value);
+          break;
+
+        case "quantity":
+          numberChecker(input.value);
+          break;
+
+        case "radio":
+          radioChecker(input.value);
+          break;
+
+        case "location1":
+        case "location2":
+        case "location3":
+        case "location4":
+        case "location5":
+        case "location6":
+          radioChecker(input.id);
+          break;
+
+        case "checkbox1":
+          checkboxChecker(input.id);
+          break;
+
+        case "checkbox2":
+          checkboxChecker(input.id);
+          break;
+
+        default:
+          null;
+      }
+    });
+
     document.getElementById("modal-body").style.display = "block";
     document.getElementById("end-modal").style.display = "none";
-  } 
+  }
 });
 
-document.getElementById("mess-end").addEventlistener("click", closeModal);
+document.getElementById("mess-end").addEventListener("click", closeModalForm);
 
 //const button = document.querySelector("#button");
 //button.addEventListener('submit', valid);

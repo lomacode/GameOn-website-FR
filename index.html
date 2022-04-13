@@ -77,7 +77,7 @@
 
             <div class="first-container">
               <label for="first">Prénom</label><br>
-              <input class="text-control" type="text" autocomplete="off" id="first" name="first" minlength="2"/><br>
+              <input class="text-control" type="text" autocomplete="off" id="first" name="first" minlength="2" /><br>
               <span class="error"></span>
             </div>
 
@@ -95,18 +95,19 @@
 
             <div class="birthdate-container">
               <label for="birthdate">Date de naissance</label><br>
-              <input class="text-control" type="date" autocomplete="off" id="birthdate" name="birthdate"/><br>
+              <input class="text-control" type="date" autocomplete="off" id="birthdate" name="birthdate" /><br>
               <span class="error"></span>
             </div>
 
             <div class="quantity-container">
               <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
               <input type="number" autocomplete="off" class="text-control" id="quantity" name="quantity" min="0"
-                max="99" >
+                max="99">
               <span class="error"></span>
             </div>
 
             <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
+              <span id="error-location" class="error"></span>
 
             <div class="formData" id="radio">
 
@@ -139,7 +140,6 @@
               <label class="checkbox-label" for="location6">
                 <span class="checkbox-icon"></span>
                 Portland</label>
-              <span id="error-location"></span>
             </div>
 
             <div class="formData">
@@ -149,7 +149,7 @@
                 J'ai lu et accepté les conditions d'utilisation.
               </label>
               <br>
-
+ 
               <input class="checkbox-input" type="checkbox" id="checkbox2" />
               <label class="checkbox2-label" for="checkbox2">
                 <span class="checkbox-icon" id="checkbox2-error"></span>
