@@ -217,6 +217,7 @@ const radioChecker = (button) => {
   }
 };
 
+
 /**
  * It checks if the checkbox is checked or not.
  * @param value - The value of the checkbox.
@@ -262,9 +263,9 @@ inputs.forEach((input) => {
         numberChecker(e.target.value);
         break;
 
-      // case "radio":
-      // radioChecker(e.target.value);
-      // break;
+        // case "radio":
+        // radioChecker(e.target.value);
+        // break;
 
       case "location1":
       case "location2":
@@ -280,7 +281,8 @@ inputs.forEach((input) => {
         break;
 
       //case "checkbox2":
-      //  break;
+        //case "checkbox2":
+        //  break;
 
       default:
         null;
@@ -346,9 +348,9 @@ form.addEventListener("submit", (e) => {
           numberChecker(input.value);
           break;
 
-        //case "radio":
-        //radioChecker(input.value);
-        //break;
+          //case "radio":
+          //radioChecker(input.value);
+          //break;
 
         case "location1":
         case "location2":
@@ -363,14 +365,15 @@ form.addEventListener("submit", (e) => {
           checkboxChecker(input.id);
           break;
 
-        //case "checkbox2":
-        //checkboxChecker(input.id);
-        // break;
+          //case "checkbox2":
+          //checkboxChecker(input.id);
+          // break;
 
         default:
           null;
       }
     });
+
 
     document.getElementById("modal-body").style.display = "block";
     document.getElementById("end-modal").style.display = "none";
@@ -381,3 +384,6 @@ document.getElementById("mess-end").addEventListener("click", closeModalForm);
 
 //const button = document.querySelector("#button");
 //button.addEventListener('submit', valid);
+
+
+
