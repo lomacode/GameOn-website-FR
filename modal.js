@@ -364,8 +364,8 @@ form.addEventListener("submit", (e) => {
           break;
 
         //case "checkbox2":
-          //checkboxChecker(input.id);
-         // break;
+        //checkboxChecker(input.id);
+        // break;
 
         default:
           null;
