@@ -140,6 +140,7 @@ const validateForm = (event) => {
   }
 };
 
+// envoi confirmation
 const confirmForm = (event) => {
   event.preventDefault();
   console.log("Validations effectuées");
