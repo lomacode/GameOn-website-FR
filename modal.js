@@ -206,7 +206,7 @@ const numberChecker = (value) => {
  */
 const radioChecker = (button) => {
   let btn = document.getElementById(button);
-  console.log(btn.checked, btn.value);
+  console.table(btn.checked, btn.value);
   if (btn.checked) {
     document.getElementById("error-location").innerHTML = "";
     radio = btn.value;
@@ -224,7 +224,7 @@ const radioChecker = (button) => {
  */
 const checkboxChecker = (button) => {
   let btn = document.getElementById(button);
-  console.log(btn.checked);
+  console.table(btn.checked);
   if (btn.checked) {
     document.getElementById(`${button}-error`).innerHTML = "";
     checkbox = btn.value;
@@ -279,8 +279,8 @@ inputs.forEach((input) => {
         checkboxChecker(e.target.id);
         break;
 
-      case "checkbox2":
-        break;
+      //case "checkbox2":
+      //  break;
 
       default:
         null;
@@ -295,8 +295,8 @@ the code will check if all the fields are filled. If they are, it will send the 
 If not, it will display an alert. */
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  console.log("Test formulaire");
-  console.log(first, last, email, birthdate, number, radio);
+  console.table("Test formulaire");
+  console.table(first, last, email, birthdate, number, radio);
 
   if (first && last && email && birthdate && number && radio) {
     const data = {
@@ -308,7 +308,7 @@ form.addEventListener("submit", (e) => {
       radio,
     };
 
-    console.log(data);
+    console.table(data);
 
     inputs.forEach((input) => (input.value = ""));
 
